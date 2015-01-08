@@ -11,6 +11,13 @@ class Action extends \Eloquent
 
     public $timestamps = false;
 
+    public static function findByActionOrCreate($action, $data = array('*'))
+    {
+        if(! is_null($action = static::where('action', $action)->first())) return $action;
+
+        return static::create($data);
+    }
+
     public function owners()
     {
         return $this->belongsToMany('Selectamark\ActionLog\Users\User');

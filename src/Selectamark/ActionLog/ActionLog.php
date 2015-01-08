@@ -10,10 +10,7 @@ class ActionLog {
 
     public function log($action, $type = null, $id = null, $content = null)
     {
-        $action = Action::where('action', $action)->first();
-        $action_id = ($action) ? $action->id : false;
-
-        if(!$action_id) return;
+        $action_id = Action::findOrCreate($action, array('action' => $action))->id;
 
         $data = array(
             'user_id' => (\Auth::check()) ? \Auth::id() : null,
