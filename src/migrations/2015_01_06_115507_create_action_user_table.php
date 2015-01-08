@@ -12,13 +12,13 @@ class CreateActionUserTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('action_user', function(Blueprint $table)
+		Schema::create('actionables', function(Blueprint $table)
 		{
 			$table->increments('id');
-			$table->integer('user_id')->unsigned()->nullable()->index();
 			$table->integer('action_id')->index()->unsigned();
 			$table->integer('actionable_id')->unsigned()->nullable()->index();
 			$table->string('actionable_type')->nullable();
+			$table->integer('user_id')->unsigned()->nullable()->index();
 			$table->text('content')->nullable();
 			$table->string('ip', '50')->nullable();
 			$table->string('ua')->nullable();
@@ -34,7 +34,7 @@ class CreateActionUserTable extends Migration {
 	 */
 	public function down()
 	{
-		Schema::drop('action_user');
+		Schema::drop('actionables');
 	}
 
 }

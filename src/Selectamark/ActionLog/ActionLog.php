@@ -10,11 +10,11 @@ class ActionLog {
 
     public function log($action, $type = null, $id = null, $content = null)
     {
-        $action_id = Action::findOrCreate($action, array('action' => $action))->id;
+        $action = Action::findByActionOrCreate($action, array('action' => $action));
 
         $data = array(
             'user_id' => (\Auth::check()) ? \Auth::id() : null,
-            'action_id' => $action_id,
+            'action_id' => $action->id,
             'content' => $content,
             'ip' => \Request::ip(),
             'ua' => \Request::server('HTTP_USER_AGENT')
