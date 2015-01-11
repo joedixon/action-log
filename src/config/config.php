@@ -2,11 +2,12 @@
 
 return array(
 
-    'types' => array(
-        'users' => 'Selectamark\ActionLog\Users\User',
-        'bikes' => 'Selectamark\Bikeregister\Bikes\Bike',
-        'items' => 'Item',
-        'kits' => 'Kit',
+    'log' => 'Selectamark\ActionLog\Models\Log',
+
+    'relations' => array(
+
+        'users' => 'Selectamark\Cms\Users\User',
+
     ),
 
 );
