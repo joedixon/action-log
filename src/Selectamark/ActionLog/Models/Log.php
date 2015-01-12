@@ -25,9 +25,4 @@ class Log extends \Eloquent
         return $this->belongsTo('Selectamark\ActionLog\Models\Action');
     }
 
-    public function users()
-    {
-        return $this->belongsTo(Config::get('action-log::types.users'));
-    }
-
 }

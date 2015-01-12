@@ -23,7 +23,7 @@ class ActionLog
             )
         );
 
-        if ($type && $id) {
+        if ($id) {
             $model = \Config::get('action-log::relations.' . $type);
             $model = new $model;
             $model = $model->find($id);
