@@ -25,4 +25,9 @@ class Log extends \Eloquent
         return $this->belongsTo('Selectamark\ActionLog\Models\Action');
     }
 
+    public function owner()
+    {
+        return $this->belongsTo(\Config::get('action-log::relations.users'), 'user_id');
+    }
+
 }

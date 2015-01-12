@@ -6,7 +6,7 @@ return array(
 
     'relations' => array(
 
-        'users' => 'Selectamark\Cms\Users\User',
+        'users' => 'User',
 
     ),
 
